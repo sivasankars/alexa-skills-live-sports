@@ -1,0 +1,34 @@
+<div class="widgets">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Notifications" ba-panel-class="with-scroll">
+        <div class="horizontal-scroll">
+          <table class="table" st-table="smartTableData">
+            <thead>
+              <tr class="sortable ">
+                <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in smartTableData">
+                <td class="table-id">{{$index + 1}}</td>
+                <td>{{item.message | limitTo:50}}</td>
+                <td>{{item.createdAt | date}}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="6" class="text-center">
+                  <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

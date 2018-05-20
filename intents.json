@@ -1,0 +1,118 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "codeworx",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": [
+                        "Open Codeworx"
+                    ]
+                },
+                {
+                    "name": "ScoreUpdate",
+                    "slots": [],
+                    "samples": [
+                        "Update",
+                        "Live",
+                        "Score"
+                    ]
+                },
+                {
+                    "name": "LetsPlay",
+                    "slots": [
+                        {
+                            "name": "score",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "Play",
+                        "Let's Play"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ScoreUpdate",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.443274070084"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "LetsPlay",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.149755348545"
+                    },
+                    "slots": [
+                        {
+                            "name": "score",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.149755348545.734404422539"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.443274070084",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "like"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.149755348545",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "You have guessed that next over run will be {score} . Is that correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.149755348545.734404422539",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Let's Play the Game, What will be the  run for next over ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.149755348545.734404422539",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{score}"
+                    }
+                ]
+            }
+        ]
+    }
+}
